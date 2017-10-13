@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 
 class NetworkUtilities: NSObject {
-    class func postImageToServer(image: UIImage, location: CLLocation , category: Category, completionHandler: @escaping () -> Void) {
+    class func postImageToServer(image: UIImage, location: CLLocation , note: String, category: Category, completionHandler: @escaping () -> Void) {
         delay(delay: 1.0) {
             completionHandler()
         }

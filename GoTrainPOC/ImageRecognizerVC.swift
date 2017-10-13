@@ -11,7 +11,7 @@ import MobileCoreServices
 import Vision
 import CoreLocation
 
-class ImageRecognizerVC: BaseVC, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate {
+class ImageRecognizerVC: BaseVC, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate, UITextFieldDelegate {
     @IBOutlet var imgPhoto: UIImageView!
     @IBOutlet var vwCategoryPicker: UIView!
     @IBOutlet var pickerCategory: UIPickerView!
@@ -19,7 +19,8 @@ class ImageRecognizerVC: BaseVC, UIPickerViewDelegate, UIPickerViewDataSource, U
     @IBOutlet var btnCamera: UIButton!
     @IBOutlet var btnEdit: UIButton!
     @IBOutlet var btnPostToServer: RoundedBotton!
-    @IBOutlet var lblLocation: UILabel!
+    @IBOutlet var txtNote: UITextField!
+    @IBOutlet var constraintContentTop: NSLayoutConstraint!
     
     let model = GoogLeNetPlaces()
     var categories: Categories?
@@ -57,8 +58,8 @@ class ImageRecognizerVC: BaseVC, UIPickerViewDelegate, UIPickerViewDataSource, U
     }
     
     @IBAction func btnPostToServer_click(_ sender: Any) {
-        showSpinner(show: true)
-//        NetworkUtilities.postImageToServer(image: imgPhoto.image!, location: self.currentLocation, category: (categories?.categories.first)!) {
+//        showSpinner(show: true)
+//        NetworkUtilities.postImageToServer(image: imgPhoto.image!, location: self.currentLocation ?? CLLocation(), note: txtNote.text, category: (categories?.categories.first)!) {
 //            self.showSpinner(show: false)
 //        }
     }
@@ -180,5 +181,29 @@ class ImageRecognizerVC: BaseVC, UIPickerViewDelegate, UIPickerViewDataSource, U
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error.localizedDescription)
+    }
+    
+    //MARK: - TextFeild delegates
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        print("done typing")
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool
+    {
+        self.constraintContentTop.constant = 150
+        UIView.animate(withDuration: 0.4) {
+            self.view.layoutIfNeeded()
+        }
+        return true
+    }
+    
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        self.constraintContentTop.constant = 0
+        UIView.animate(withDuration: 0.4) {
+            self.view.layoutIfNeeded()
+        }
+        return true
     }
 }
