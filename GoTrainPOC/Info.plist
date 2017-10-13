@@ -34,6 +34,12 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>App needs to acces your photo library to .....</string>
+	<key>NSCameraUsageDescription</key>
+	<string>App needs to acces your camera library to .....</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>App needs to acces your location to .....</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

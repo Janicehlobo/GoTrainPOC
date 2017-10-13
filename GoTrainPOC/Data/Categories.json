@@ -1,0 +1,20 @@
+{
+  "Categories": [
+    {
+      "Name": "Door Issue",
+      "Words": [ "doorway/outdoor", "subway_station/platform", "shopfront" ]
+    },
+    {
+      "Name": "Light Issue",
+      "Words": [ "lamp", "light" ]
+    },
+    {
+      "Name": "Too Busy",
+      "Words": [ "crowd", "people", "busy" ]
+    },
+    {
+      "Name": "Tocken Machine",
+      "Words": ["phone_booth"]
+    }
+  ]
+}
