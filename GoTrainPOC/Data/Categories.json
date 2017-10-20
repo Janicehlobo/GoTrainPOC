@@ -1,20 +1,44 @@
 {
-  "Categories": [
-    {
-      "Name": "Door Issue",
-      "Words": [ "doorway/outdoor", "subway_station/platform", "shopfront" ]
-    },
-    {
-      "Name": "Light Issue",
-      "Words": [ "lamp", "light" ]
-    },
-    {
-      "Name": "Too Busy",
-      "Words": [ "crowd", "people", "busy" ]
-    },
-    {
-      "Name": "Tocken Machine",
-      "Words": ["phone_booth"]
-    }
-  ]
+    "Categories": [
+                   {
+                   "Name": "Door Issue",
+                   "Words": [ "doorway/outdoor", "subway_station/platform", "shopfront" ]
+                   },
+                   {
+                   "Name": "Light Issue",
+                   "Words": [ "lamp", "light" ]
+                   },
+                   {
+                   "Name": "Too Busy",
+                   "Words": [ "crowd", "people", "busy" ]
+                   },
+                   {
+                   "Name": "Tocken Machine",
+                   "Words": ["phone_booth"]
+                   },
+                   {
+                   "Name": "Track Issue",
+                   "Words": ["train_station/platform"]
+                   },
+                   {
+                   "Name": "Signal Issue",
+                   "Words": ["railroad_track"]
+                   },
+                   {
+                   "Name": "Train Delay",
+                   "Words": ["phone_booth"]
+                   },
+                   {
+                   "Name": "Broken Seat",
+                   "Words": ["phone_booth"]
+                   },
+                   {
+                   "Name": "External Damage",
+                   "Words": ["phone_booth"]
+                   },
+                   {
+                   "Name": "Trafic Issue",
+                   "Words": ["phone_booth"]
+                   }
+                   ]
 }

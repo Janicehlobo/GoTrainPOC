@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E5C99491F98D7E90026D108 /* POCTextFeild.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5C99481F98D7E90026D108 /* POCTextFeild.swift */; };
 		2ED0F4081F8F981300CD0632 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED0F4071F8F981300CD0632 /* AppDelegate.swift */; };
 		2ED0F40A1F8F981300CD0632 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED0F4091F8F981300CD0632 /* ViewController.swift */; };
 		2ED0F40D1F8F981300CD0632 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ED0F40B1F8F981300CD0632 /* Main.storyboard */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2E5C99481F98D7E90026D108 /* POCTextFeild.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POCTextFeild.swift; sourceTree = "<group>"; };
 		2ED0F4041F8F981300CD0632 /* GoTrainPOC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoTrainPOC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2ED0F4071F8F981300CD0632 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2ED0F4091F8F981300CD0632 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				2ED0F4131F8F981300CD0632 /* Info.plist */,
 				2ED0F43E1F8FCEC500CD0632 /* GoogLeNetPlaces.mlmodel */,
 				2ED0F4401F8FD47500CD0632 /* NetworkUtilities.swift */,
+				2E5C99481F98D7E90026D108 /* POCTextFeild.swift */,
 			);
 			path = GoTrainPOC;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 				2ED0F4081F8F981300CD0632 /* AppDelegate.swift in Sources */,
 				2ED0F4411F8FD47500CD0632 /* NetworkUtilities.swift in Sources */,
 				2ED0F4361F8F9B7000CD0632 /* ImageRecognizerVC.swift in Sources */,
+				2E5C99491F98D7E90026D108 /* POCTextFeild.swift in Sources */,
 				2ED0F4471F8FDB6000CD0632 /* AppConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -489,7 +493,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ibm.ca.GoTrainPOC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -504,7 +508,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ibm.ca.GoTrainPOC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -21,6 +21,7 @@ class ImageRecognizerVC: BaseVC, UIPickerViewDelegate, UIPickerViewDataSource, U
     @IBOutlet var btnPostToServer: RoundedBotton!
     @IBOutlet var txtNote: UITextField!
     @IBOutlet var constraintContentTop: NSLayoutConstraint!
+    @IBOutlet var lblEmotion: UILabel!
     
     let model = GoogLeNetPlaces()
     var categories: Categories?
@@ -28,10 +29,11 @@ class ImageRecognizerVC: BaseVC, UIPickerViewDelegate, UIPickerViewDataSource, U
     typealias Prediction = (String, Double)
     var locationManeger = CLLocationManager()
     var currentLocation: CLLocation?
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.categories = Categories()
         self.pickerCategory.reloadAllComponents()
         self.locationManeger.delegate = self
@@ -48,6 +50,7 @@ class ImageRecognizerVC: BaseVC, UIPickerViewDelegate, UIPickerViewDataSource, U
                 let top5 = observations.prefix(through: 4)
                     .map { ($0.identifier, Double($0.confidence)) }
                 self.show(results: top5)
+                self.btnPostToServer.isEnabled = true
             }
         }
     }
@@ -58,16 +61,38 @@ class ImageRecognizerVC: BaseVC, UIPickerViewDelegate, UIPickerViewDataSource, U
     }
     
     @IBAction func btnPostToServer_click(_ sender: Any) {
-//        showSpinner(show: true)
-//        NetworkUtilities.postImageToServer(image: imgPhoto.image!, location: self.currentLocation ?? CLLocation(), note: txtNote.text, category: (categories?.categories.first)!) {
-//            self.showSpinner(show: false)
-//        }
+       
+        showSpinner(show: true)
+        NetworkUtilities.postImageToServer(image: imgPhoto.image!, location: self.currentLocation ?? CLLocation(), note: txtNote.text!, category: (categories?.categories.first)!) { (error) in
+            self.showSpinner(show: false)
+            if error != nil {
+                self.showToast(message: (error?.localizedDescription)!, style: .error)
+            } else {
+                self.showToast(message: "Data posted successfully", style: .information)
+            }
+        }
+        
+        NetworkUtilities.sentimentalAnalysis(text: self.txtNote.text!) { [weak self] (error, score,toneName) in
+            print(toneName)
+            
+            DispatchQueue.main.async {
+                switch(toneName) {
+                case "Anger":
+                    self?.lblEmotion.text =  "\u{1F621}"
+                case "Sadness":
+                    self?.lblEmotion.text =  "\u{1F61E}"
+                default:
+                    self?.lblEmotion.text = "\u{1F603}"
+                }
+            }
+        }
     }
     
     @IBAction func btnCamera_Click(_ sender: Any) {
         let title = NSLocalizedString("Choose your source", comment: "")
         let message = NSLocalizedString("Please choose your source", comment: "")
         let camera = NSLocalizedString("Camera", comment: "")
+        let cancel = NSLocalizedString("Cancel", comment: "")
         let photoLibrary = NSLocalizedString("Photo Library", comment: "")
         let actionSheet = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
         
@@ -80,15 +105,30 @@ class ImageRecognizerVC: BaseVC, UIPickerViewDelegate, UIPickerViewDataSource, U
             print("user selected photo library")
             self.choosePhoto(source: .photoLibrary)
         }))
-        
+
+        actionSheet.addAction(UIAlertAction(title: cancel, style: .cancel, handler: { (alert) in
+            self.dismiss(animated: true, completion: nil)
+        }))
+
         present(actionSheet, animated: true, completion: nil)
     }
     
     @IBAction func btnEdit_Click(_ sender: Any) {
+        txtNote.text = " "
+        lblEmotion.text = " "
+        btnCategory.setTitle("Category", for: .normal)
+        
         btnCamera_Click(sender)
     }
     
+    @IBAction func pickerBackground_tap(_ sender: Any) {
+        vwCategoryPicker.isHidden = true
+    }
+    
     //MARK: - Helper Methods
+    // Choose a photo and predict the image category.
+    //
+    /// - Parameter source: this is source of image , it can be camera or photo library
     func choosePhoto(source: UIImagePickerControllerSourceType) {
         if source == .camera {
             if UIImagePickerController.isSourceTypeAvailable(.camera) == false {
@@ -103,6 +143,9 @@ class ImageRecognizerVC: BaseVC, UIPickerViewDelegate, UIPickerViewDataSource, U
         self.present(imagePicker, animated: true, completion: nil)
     }
     
+    /// A prediction model
+    ///
+    /// - Parameter results: predicts the category of the image and displays it on the screen, showing the top 5 matches for the image
     func show(results: [Prediction]) {
         if let category = self.categories?.findCategory(value: (results.first?.0)!) {
             let row = self.categories?.categories.index(of: category) ?? 0
@@ -118,6 +161,7 @@ class ImageRecognizerVC: BaseVC, UIPickerViewDelegate, UIPickerViewDataSource, U
         showInfoMessage(title: "info", message: s.joined(separator: "\n"))
     }
 
+    /// Performs the recognition 
     func recognizeImage() {
         guard let request = self.request else {
             return
@@ -126,15 +170,18 @@ class ImageRecognizerVC: BaseVC, UIPickerViewDelegate, UIPickerViewDataSource, U
         try? handler.perform([request])
     }
     
+    /// Get the current location of the user
+    ///
+    /// - Parameter lastLocation: this is last locatio detected by phone
     func lookUpCurrentLocation(lastLocation: CLLocation) {
         let geocoder = CLGeocoder()
             // Look up the location and pass it to the completion handler
         geocoder.reverseGeocodeLocation(lastLocation, completionHandler: { (placemarks, error) in
                                             if error == nil {
-                                                print(placemarks?.first?.locality)
+                                                //print(placemarks?.first?.locality)
                                             }
                                             else {
-                                                print("cannot get address")
+                                                //print("cannot get address")
                                             }
         })
     }
