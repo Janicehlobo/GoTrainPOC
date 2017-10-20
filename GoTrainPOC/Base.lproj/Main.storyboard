@@ -27,13 +27,13 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9cA-MF-Xyt" customClass="RoundView" customModule="GoTrainPOC" customModuleProvider="target">
-                                        <rect key="frame" x="15" y="35" width="290" height="289"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="319"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7nF-VL-2w7">
-                                                <rect key="frame" x="5" y="5" width="280" height="279"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="319"/>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LNJ-Wf-0Ar" userLabel="btnCamera">
-                                                <rect key="frame" x="122" y="122" width="45" height="45"/>
+                                                <rect key="frame" x="137" y="137" width="45" height="45"/>
                                                 <accessibility key="accessibilityConfiguration" label="btnCamera"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="MdT-ys-9Zq"/>
@@ -46,7 +46,7 @@
                                                 </connections>
                                             </button>
                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n13-Gf-ZAw" userLabel="btnEdit">
-                                                <rect key="frame" x="250" y="10" width="30" height="30"/>
+                                                <rect key="frame" x="280" y="10" width="30" height="30"/>
                                                 <accessibility key="accessibilityConfiguration" label="btnEdit"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="Lzs-KY-1Bd"/>
@@ -62,30 +62,31 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="7nF-VL-2w7" firstAttribute="leading" secondItem="9cA-MF-Xyt" secondAttribute="leading" constant="5" id="4Bd-Fu-eKt"/>
+                                            <constraint firstItem="7nF-VL-2w7" firstAttribute="leading" secondItem="9cA-MF-Xyt" secondAttribute="leading" id="4Bd-Fu-eKt"/>
                                             <constraint firstItem="n13-Gf-ZAw" firstAttribute="top" secondItem="9cA-MF-Xyt" secondAttribute="top" constant="10" id="5hQ-dL-XcD"/>
-                                            <constraint firstAttribute="trailing" secondItem="7nF-VL-2w7" secondAttribute="trailing" constant="5" id="988-LU-pU0"/>
+                                            <constraint firstAttribute="trailing" secondItem="7nF-VL-2w7" secondAttribute="trailing" id="988-LU-pU0"/>
+                                            <constraint firstAttribute="width" constant="320" id="Gfl-sg-0Sj"/>
                                             <constraint firstItem="LNJ-Wf-0Ar" firstAttribute="centerX" secondItem="9cA-MF-Xyt" secondAttribute="centerX" id="SDe-Kf-MDp"/>
-                                            <constraint firstAttribute="bottom" secondItem="7nF-VL-2w7" secondAttribute="bottom" constant="5" id="TrQ-AV-UAe"/>
+                                            <constraint firstAttribute="bottom" secondItem="7nF-VL-2w7" secondAttribute="bottom" id="TrQ-AV-UAe"/>
                                             <constraint firstAttribute="trailing" secondItem="n13-Gf-ZAw" secondAttribute="trailing" constant="10" id="cYO-lb-sZN"/>
                                             <constraint firstAttribute="width" secondItem="9cA-MF-Xyt" secondAttribute="height" multiplier="1:1" constant="1" id="g4T-Fe-Rx5"/>
                                             <constraint firstItem="LNJ-Wf-0Ar" firstAttribute="centerY" secondItem="9cA-MF-Xyt" secondAttribute="centerY" id="lWw-bx-wk8"/>
-                                            <constraint firstItem="7nF-VL-2w7" firstAttribute="top" secondItem="9cA-MF-Xyt" secondAttribute="top" constant="5" id="zA8-A9-PKM"/>
+                                            <constraint firstItem="7nF-VL-2w7" firstAttribute="top" secondItem="9cA-MF-Xyt" secondAttribute="top" id="zA8-A9-PKM"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                 <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="1"/>
+                                                <real key="value" value="0.0"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="20"/>
+                                                <real key="value" value="0.0"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" type a note" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gi5-BO-4FL" userLabel="txtfieldNote" customClass="POCTextFeild" customModule="GoTrainPOC" customModuleProvider="target">
-                                        <rect key="frame" x="15" y="354" width="290" height="40"/>
+                                        <rect key="frame" x="15" y="349" width="290" height="40"/>
                                         <color key="backgroundColor" red="0.93841201070000002" green="0.93568754200000004" blue="0.93851929899999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="bQg-ay-g6U"/>
@@ -97,7 +98,7 @@
                                                 <real key="value" value="2"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="12"/>
+                                                <real key="value" value="5"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                 <color key="value" red="0.79991227389999997" green="0.80005055670000003" blue="0.79990351199999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -108,13 +109,13 @@
                                         </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yqE-Yc-336" userLabel="lblEmotion">
-                                        <rect key="frame" x="305" y="374" width="0.0" height="0.0"/>
+                                        <rect key="frame" x="305" y="369" width="0.0" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dcv-QG-PzO" userLabel="btnCategory" customClass="RoundedBotton" customModule="GoTrainPOC" customModuleProvider="target">
-                                        <rect key="frame" x="15" y="414" width="125" height="40"/>
+                                        <rect key="frame" x="15" y="409" width="125" height="40"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="brW-Sr-qXK"/>
@@ -125,7 +126,7 @@
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="20"/>
+                                                <real key="value" value="5"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
@@ -133,7 +134,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QXB-Ke-zd9" userLabel="btnPosttoServer" customClass="RoundedBotton" customModule="GoTrainPOC" customModuleProvider="target">
-                                        <rect key="frame" x="180" y="414" width="125" height="40"/>
+                                        <rect key="frame" x="180" y="409" width="125" height="40"/>
                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="HAd-O9-MWf"/>
@@ -144,7 +145,7 @@
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="20"/>
+                                                <real key="value" value="5"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
@@ -199,15 +200,14 @@
                                     <constraint firstItem="Dcv-QG-PzO" firstAttribute="width" secondItem="QXB-Ke-zd9" secondAttribute="width" id="MxX-pb-UgK"/>
                                     <constraint firstItem="lxB-Kj-Fs9" firstAttribute="top" secondItem="QcB-10-0ib" secondAttribute="top" id="P6Z-4Q-vnP"/>
                                     <constraint firstItem="QXB-Ke-zd9" firstAttribute="leading" secondItem="Dcv-QG-PzO" secondAttribute="trailing" constant="40" id="QHZ-lk-rf3"/>
-                                    <constraint firstAttribute="trailing" secondItem="9cA-MF-Xyt" secondAttribute="trailing" constant="15" id="Ugk-ic-2oH"/>
+                                    <constraint firstAttribute="trailing" secondItem="9cA-MF-Xyt" secondAttribute="trailing" id="Ugk-ic-2oH"/>
                                     <constraint firstAttribute="trailing" secondItem="lxB-Kj-Fs9" secondAttribute="trailing" id="ZQS-NZ-BKY"/>
                                     <constraint firstAttribute="trailing" secondItem="QXB-Ke-zd9" secondAttribute="trailing" constant="15" id="aHY-xx-BMZ"/>
-                                    <constraint firstItem="9cA-MF-Xyt" firstAttribute="top" secondItem="QcB-10-0ib" secondAttribute="top" constant="35" id="bHs-jH-oSg"/>
+                                    <constraint firstItem="9cA-MF-Xyt" firstAttribute="top" secondItem="QcB-10-0ib" secondAttribute="top" id="bHs-jH-oSg"/>
                                     <constraint firstAttribute="trailing" secondItem="Gi5-BO-4FL" secondAttribute="trailing" constant="15" id="blD-2i-hP1"/>
                                     <constraint firstItem="lxB-Kj-Fs9" firstAttribute="leading" secondItem="QcB-10-0ib" secondAttribute="leading" id="db3-Qr-gpT"/>
                                     <constraint firstItem="QXB-Ke-zd9" firstAttribute="top" secondItem="Gi5-BO-4FL" secondAttribute="bottom" constant="20" id="hu1-IA-28b"/>
                                     <constraint firstItem="Gi5-BO-4FL" firstAttribute="top" secondItem="9cA-MF-Xyt" secondAttribute="bottom" constant="30" id="ndS-Um-pI6"/>
-                                    <constraint firstItem="9cA-MF-Xyt" firstAttribute="leading" secondItem="QcB-10-0ib" secondAttribute="leading" constant="15" id="qMS-um-wGF"/>
                                     <constraint firstItem="yqE-Yc-336" firstAttribute="trailing" secondItem="Gi5-BO-4FL" secondAttribute="trailing" id="wMb-P4-pYm"/>
                                     <constraint firstItem="yqE-Yc-336" firstAttribute="centerY" secondItem="Gi5-BO-4FL" secondAttribute="centerY" id="wVM-OP-XU5"/>
                                 </constraints>
