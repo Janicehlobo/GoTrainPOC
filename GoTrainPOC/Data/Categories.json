@@ -1,12 +1,24 @@
 {
     "Categories": [
                    {
+                   "Name": "Broken Seat",
+                   "Words": ["barber chair","studio couch, day bed"]
+                   },
+                   {
                    "Name": "Door Issue",
-                   "Words": [ "doorway/outdoor", "subway_station/platform", "shopfront" ]
+                   "Words": ["sliding door"]
+                   },
+                   {
+                   "Name": "External Damage",
+                   "Words": ["phone_booth"]
                    },
                    {
                    "Name": "Light Issue",
                    "Words": [ "lamp", "light" ]
+                   },
+                   {
+                   "Name": "Signal Issue",
+                   "Words": ["traffic light, traffic signal, stoplight"]
                    },
                    {
                    "Name": "Too Busy",
@@ -14,26 +26,14 @@
                    },
                    {
                    "Name": "Tocken Machine",
-                   "Words": ["phone_booth"]
+                   "Words": ["vending machine"]
                    },
                    {
                    "Name": "Track Issue",
-                   "Words": ["train_station/platform"]
-                   },
-                   {
-                   "Name": "Signal Issue",
-                   "Words": ["railroad_track"]
+                   "Words": ["steam locomotive", "bullet train, bullet"]
                    },
                    {
                    "Name": "Train Delay",
-                   "Words": ["phone_booth"]
-                   },
-                   {
-                   "Name": "Broken Seat",
-                   "Words": ["phone_booth"]
-                   },
-                   {
-                   "Name": "External Damage",
                    "Words": ["phone_booth"]
                    },
                    {

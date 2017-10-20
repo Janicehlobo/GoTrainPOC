@@ -16,7 +16,6 @@ class NetworkUtilities: NSObject {
         let request = NSMutableURLRequest(url: URL(string: url!)!)
         request.httpMethod = "POST"
         
-        var err: NSError?
         let boundary = NSUUID().uuidString
         let fullData = photoDataToFormData(data: UIImageJPEGRepresentation(image, 1) as! NSData, boundary:boundary, fileName:"fileName.jpg")
         
@@ -26,7 +25,7 @@ class NetworkUtilities: NSObject {
         request.httpShouldHandleCookies = false
         
         let task = URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
-            print("response = \(response)")
+//            print("response = \(response)")
             completionHandler(error)
         }
         task.resume()

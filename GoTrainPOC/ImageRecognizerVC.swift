@@ -24,6 +24,7 @@ class ImageRecognizerVC: BaseVC, UIPickerViewDelegate, UIPickerViewDataSource, U
     @IBOutlet var lblEmotion: UILabel!
     
     let model = GoogLeNetPlaces()
+    var model2 = VGG16()
     var categories: Categories?
     var request: VNCoreMLRequest?
     typealias Prediction = (String, Double)
@@ -40,11 +41,10 @@ class ImageRecognizerVC: BaseVC, UIPickerViewDelegate, UIPickerViewDataSource, U
         self.locationManeger.requestLocation()
         self.locationManeger.requestWhenInUseAuthorization()
         self.locationManeger.startUpdatingLocation()
-        
-        guard let visionModel = try? VNCoreMLModel(for: model.model) else {
+
+        guard let visionModel = try? VNCoreMLModel(for: model2.model) else {
             fatalError("Error")
         }
-        
         self.request = VNCoreMLRequest(model: visionModel) { request, error in
             if let observations = request.results as? [VNClassificationObservation] {
                 let top5 = observations.prefix(through: 4)
@@ -53,6 +53,20 @@ class ImageRecognizerVC: BaseVC, UIPickerViewDelegate, UIPickerViewDataSource, U
                 self.btnPostToServer.isEnabled = true
             }
         }
+
+        
+//        guard let visionModel = try? VNCoreMLModel(for: model.model) else {
+//            fatalError("Error")
+//        }
+//
+//        self.request = VNCoreMLRequest(model: visionModel) { request, error in
+//            if let observations = request.results as? [VNClassificationObservation] {
+//                let top5 = observations.prefix(through: 4)
+//                    .map { ($0.identifier, Double($0.confidence)) }
+//                self.show(results: top5)
+//                self.btnPostToServer.isEnabled = true
+//            }
+//        }
     }
 
     //MARK: - IBActions
@@ -184,6 +198,36 @@ class ImageRecognizerVC: BaseVC, UIPickerViewDelegate, UIPickerViewDataSource, U
                                                 //print("cannot get address")
                                             }
         })
+    }
+    
+    
+    /// Convert UIImage to CVPixelBuffer
+    ///
+    /// - Parameter image: UIImage
+    /// - Returns: CVPixelBuffer
+    func convertUIImageTOCVPixelBuffer(from image: UIImage) -> CVPixelBuffer? {
+        let attrs = [kCVPixelBufferCGImageCompatibilityKey: kCFBooleanTrue, kCVPixelBufferCGBitmapContextCompatibilityKey: kCFBooleanTrue] as CFDictionary
+        var pixelBuffer : CVPixelBuffer?
+        let status = CVPixelBufferCreate(kCFAllocatorDefault, Int(image.size.width), Int(image.size.height), kCVPixelFormatType_32ARGB, attrs, &pixelBuffer)
+        guard (status == kCVReturnSuccess) else {
+            return nil
+        }
+        
+        CVPixelBufferLockBaseAddress(pixelBuffer!, CVPixelBufferLockFlags(rawValue: 0))
+        let pixelData = CVPixelBufferGetBaseAddress(pixelBuffer!)
+        
+        let rgbColorSpace = CGColorSpaceCreateDeviceRGB()
+        let context = CGContext(data: pixelData, width: Int(image.size.width), height: Int(image.size.height), bitsPerComponent: 8, bytesPerRow: CVPixelBufferGetBytesPerRow(pixelBuffer!), space: rgbColorSpace, bitmapInfo: CGImageAlphaInfo.noneSkipFirst.rawValue)
+        
+        context?.translateBy(x: 0, y: image.size.height)
+        context?.scaleBy(x: 1.0, y: -1.0)
+        
+        UIGraphicsPushContext(context!)
+        image.draw(in: CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height))
+        UIGraphicsPopContext()
+        CVPixelBufferUnlockBaseAddress(pixelBuffer!, CVPixelBufferLockFlags(rawValue: 0))
+        
+        return pixelBuffer
     }
     
     //MARK: - Picker Delegates

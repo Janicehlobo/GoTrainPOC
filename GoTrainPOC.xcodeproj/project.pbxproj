@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2E5C99491F98D7E90026D108 /* POCTextFeild.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5C99481F98D7E90026D108 /* POCTextFeild.swift */; };
+		2E5C996F1F9A323A0026D108 /* VGG16.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 2E5C996E1F9A322A0026D108 /* VGG16.mlmodel */; };
 		2ED0F4081F8F981300CD0632 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED0F4071F8F981300CD0632 /* AppDelegate.swift */; };
 		2ED0F40A1F8F981300CD0632 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED0F4091F8F981300CD0632 /* ViewController.swift */; };
 		2ED0F40D1F8F981300CD0632 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ED0F40B1F8F981300CD0632 /* Main.storyboard */; };
@@ -48,6 +49,7 @@
 
 /* Begin PBXFileReference section */
 		2E5C99481F98D7E90026D108 /* POCTextFeild.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POCTextFeild.swift; sourceTree = "<group>"; };
+		2E5C996E1F9A322A0026D108 /* VGG16.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = VGG16.mlmodel; path = ../../../Downloads/VGG16.mlmodel; sourceTree = "<group>"; };
 		2ED0F4041F8F981300CD0632 /* GoTrainPOC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoTrainPOC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2ED0F4071F8F981300CD0632 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2ED0F4091F8F981300CD0632 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				2ED0F4101F8F981300CD0632 /* LaunchScreen.storyboard */,
 				2ED0F4131F8F981300CD0632 /* Info.plist */,
 				2ED0F43E1F8FCEC500CD0632 /* GoogLeNetPlaces.mlmodel */,
+				2E5C996E1F9A322A0026D108 /* VGG16.mlmodel */,
 				2ED0F4401F8FD47500CD0632 /* NetworkUtilities.swift */,
 				2E5C99481F98D7E90026D108 /* POCTextFeild.swift */,
 			);
@@ -321,6 +324,7 @@
 				2ED0F4361F8F9B7000CD0632 /* ImageRecognizerVC.swift in Sources */,
 				2E5C99491F98D7E90026D108 /* POCTextFeild.swift in Sources */,
 				2ED0F4471F8FDB6000CD0632 /* AppConstants.swift in Sources */,
+				2E5C996F1F9A323A0026D108 /* VGG16.mlmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
